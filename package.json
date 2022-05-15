@@ -7,6 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.0.4",
     "nuxt": "3.0.0-rc.3"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "bootstrap": "^5.1.3"
   }
 }

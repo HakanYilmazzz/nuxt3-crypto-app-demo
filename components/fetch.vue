@@ -14,40 +14,33 @@ async function fetchData() {
 </script>
 
 <template>
-    <div class="space-y-4">
-        <div>
-            <label class="block font-bold">Choose Character ID</label>
-            <div class="mt-2 space-x-4">
-                <button @click="fetchData" class="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded">Fetch
+    <div class="space-y-4 bg-gradient-to-r from-violet-500 to-fuchsia-500bg-gradient-to-r from-violet-500 to-fuchsia-500">
+      
+            <div class="space-x-4 pt-4 flex justify-center">
+                <button @click="fetchData" class="py-2 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded">Fetch Data
                 </button>
             </div>
-        </div>
+        
 
         <template v-if="contents">
-            <!-- <div v-for="content in contents" >
-              <span>{{ content.id }}</span>
-            </div> -->
-            <table class="border-collapse border border-slate-400 table-auto" v-for="content in contents">
-                <thead>
-                    <tr >
-                        <th>{{content.id}}</th>
+            <div class="flex justify-center">
+            <table class="w-4/6 text-center table table-zebra rounded-lg" style="border-collapse:separate; border-spacing:0px 20px">
+                <thead class="bg-gray-900 rounded-lg">
+                    <tr class="w-full text-white ">
+                        <th class="uppercase px-6 py-4">Logo</th>
+                        <th class="uppercase px-6 py-4">Name</th>
+                        <th class="uppercase px-6 py-4">Price</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>{{content.price}}</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>{{content.rank}}</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>{{content.symbol}}</td>
-                        
+                <tbody  class="p-2 border-solid border-1  bg-white  text-center ">
+                    <tr  v-for="(content, index) in contents" class="p-2 ">
+                        <td class=" rounded-l-lg p-2"><img :src="content.logo_url" alt="" width="70" ></td>
+                        <td >{{ content.name }}<br><span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">{{content.symbol}}</span></td>
+                        <td class="rounded-r-lg p-2">{{ content.price }} TL</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </template>
     </div>
 </template>
