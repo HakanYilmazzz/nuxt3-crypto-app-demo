@@ -26,7 +26,7 @@ async function fetchData() {
             <div class="flex justify-center">
                 <table class="w-3/6 text-center table table-zebra rounded-lg"
                     style="border-collapse:separate; border-spacing:0px 20px">
-                    <thead class="bg-gray-900 rounded-lg">
+                    <thead class="bg-gray-900 rounded-lg shadow-lg shadow-gray-500">
                         <tr class="w-full text-white ">
                             <th class="uppercase px-6 py-4">Logo</th>
                             <th class="uppercase px-6 py-4">Name</th>
@@ -34,11 +34,13 @@ async function fetchData() {
                         </tr>
                     </thead>
                     <tbody class="p-2 border-solid border-1  bg-white  text-center ">
-                        <tr v-for="(content, index) in contents">
+                        <tr v-for="(content, index) in contents" class="shadow-lg shadow-cyan-500/50">
                             <td class=" rounded-l-lg"><img :src="content.logo_url" alt="" width="70"
                                     style="margin-left:25%"></td>
                             <td style="color:purple !important">{{ content.name }}<br><span
-                                    class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">{{ content.symbol }}</span>
+                                    class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">{{
+                                            content.symbol
+                                    }}</span>
                             </td>
                             <td class="rounded-r-lg">{{ parseFloat(content.price).toFixed(3) }} TL</td>
                         </tr>
