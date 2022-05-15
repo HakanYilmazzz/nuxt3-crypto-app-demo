@@ -5,7 +5,6 @@ async function fetchData() {
         const { data } = await useFetch(`https://api.nomics.com/v1/currencies/ticker?key=1da999db0f7e0fa4f70d97f48d6ffe612260cf18&interval=1d,30d&convert=TRY`); // prettier-ignore
         if (!data) throw new Error('cannot fetch data');
         contents.value = data;
-        console.log(data.value)
     } catch (error) {
         console.error(error.message);
         contents.value = null;
@@ -14,9 +13,7 @@ async function fetchData() {
 </script>
 
 <template>
-    <div
-        class="space-y-4 bg-gradient-to-r from-violet-500 to-fuchsia-500bg-gradient-to-r from-violet-500 to-fuchsia-500">
-
+    <div class="space-y-4 bg-gradient-to-r from-violet-500 to-fuchsia-500bg-gradient-to-r from-violet-500 to-fuchsia-500">
         <div class="space-x-4 pt-4 flex justify-center">
             <button @click="fetchData" class="py-2 px-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded">Fetch Data
             </button>
